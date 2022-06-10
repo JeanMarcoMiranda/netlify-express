@@ -27,13 +27,13 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-app.use("/.netlify/functions/api/products", productRoute);
+app.use("/.netlify/functions/api", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
+
 app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html')));
 
 
 
-module.exports = app
 module.exports.handler = serverless(app)
