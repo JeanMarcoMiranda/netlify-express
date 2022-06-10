@@ -31,7 +31,7 @@ app.use("/.netlify/functions/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html')));
 
 
 
