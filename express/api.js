@@ -40,4 +40,3 @@ app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html
 
 module.exports.handler = serverless(app)
 
-module.exports = app
