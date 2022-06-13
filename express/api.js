@@ -12,6 +12,7 @@ const productRoute = require("../routes/product");
 const cartRoute = require("../routes/cart");
 const orderRoute = require("../routes/order");
 const stripeRoute = require("../routes/stripe");
+const furnitureRoute = require("../routes/furniture")
 const cors = require("cors");
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/.netlify/functions/api", productRoute);
+app.use("/.netlify/functions/api", furnitureRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
@@ -37,3 +39,5 @@ app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html
 
 
 module.exports.handler = serverless(app)
+
+module.exports = app
