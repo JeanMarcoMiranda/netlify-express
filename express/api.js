@@ -13,6 +13,7 @@ const cartRoute = require("../routes/cart");
 const orderRoute = require("../routes/order");
 const stripeRoute = require("../routes/stripe");
 const furnitureRoute = require("../routes/furniture")
+const gameRoute = require("../routes/game")
 const cors = require("cors");
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/.netlify/functions/api", productRoute);
 app.use("/.netlify/functions/api", furnitureRoute);
+app.use("/.netlify/functions/api", gameRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
