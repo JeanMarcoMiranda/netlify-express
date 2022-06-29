@@ -35,10 +35,10 @@ const generateGames = () => {
       img: data[i].img,
       portrait: data[i].portrait,
       releasedate: faker.date.between('2018-01-01T00:00:00.000Z', '2022-06-28T00:00:00.000Z'),
-      publisher: gamesPublisher[randomNumberFromInterval(8)],
+      publisher: gamesPublisher[randomNumberFromInterval(0, 8)],
       tags: [],
       categories: [],
-      about: faker.lorem.paragraphs(10),
+      about: faker.lorem.paragraphs(5, '<br />'),
       genre: gamesGenre[randomNumberFromInterval(0, 5)],
     };
 
