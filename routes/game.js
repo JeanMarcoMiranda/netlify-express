@@ -59,6 +59,7 @@ router.get("/games/find/:id", async (req, res) => {
 router.get("/games", async (req, res) => {
   const qNew = req.query.new;
   const qTag = req.query.tag;
+  const qGenre = req.query.genre;
   try {
     let games;
 
@@ -69,6 +70,10 @@ router.get("/games", async (req, res) => {
         tags: {
           $in: [qTag],
         },
+      });
+    } else if (qGenre) {
+      games = await Game.find({
+        genre: qGenre,
       });
     } else {
       games = await Game.find();
